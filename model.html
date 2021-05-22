@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="Subscription " />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS Bin</title>
+  </head>
+  <body>
+    <script defer src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mockjax/1.6.2/jquery.mockjax.js"></script>
+
+    <div class="alert" id="error">
+      <span id="errorclosebtn" class="closebtn">&times;</span>  
+      <strong>Error!</strong> Entered values are incorrect. Try again!
+    </div>
+
+    <div id="load-page">Loading...</div>
+
+    <div id="config-page">
+      <h2>Subscription</h2>
+      <div class="product">
+        <div class="edit-plan">
+          <div>
+            <select id="plan-input">
+              <option value="basic">Basic</option>
+              <option value="good">Good</option>
+              <option value="better">Better</option>
+              <option value="best">Best</option>
+            </select>
+          </div>
+          <div class="label">
+            <label for="planInput">Plan</label>
+          </div>
+        </div>
+
+        <div class="edit-seats">
+          <div>
+            <input id="seats-input" type="text" value="" />
+          </div>
+          <div class="label">
+            <label for="seats-input">Seats</label>
+          </div>
+        </div>
+
+        <div class="price">
+          <div id="cost-value"></div>
+          <div class="label">Price</div>
+        </div>
+      </div>
+      <div class="confirm-page-button-section">
+        <button id="submit" disabled="disabled">Update Subscription</button>
+      </div>
+    </div>
+
+    <div id="done-page">
+      <div class="old column">
+        <h4>Previous Subscription</h4>
+        <div class="row">
+          <span class="label">Plan</span>
+          <span class="value" id="old-plan">Good</span>
+        </div>
+        <div class="row">
+          <span class="label">Seats</span>
+          <span class="value" id="old-seats">5</span>
+        </div>
+        <div class="row">
+          <span class="label">Price</span>
+          <span class="value" id="old-cost">$50</span>
+        </div>
+      </div>
+
+      <div class="new column">
+        <h4>Updated Subscription</h4>
+        <div class="row">
+          <span class="label">Plan</span>
+          <span class="value" id="new-plan">Better</span>
+        </div>
+        <div class="row">
+          <span class="label">Seats</span>
+          <span class="value" id="new-seats">5</span>
+        </div>
+        <div class="row">
+          <span class="label">Price</span>
+          <span class="value" id="new-cost">$100</span>
+        </div>
+      </div>
+      <div class="done-page-button-section">
+        <button id="back">Back</button>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+body {
+  font-family: 'Helvetica';
+  font-size: 14px;
+  color: #444444;
+  background-color: #f8f8f8;
+}
+body button {
+  padding: 10px 25px;
+  border: none;
+  background-color: #30aabc;
+  color: white;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  color: #fafafa;
+  cursor: default;
+}
+
+#config-page {
+  height: 300px;
+  margin-left: 20px;
+}
+
+#config-page > h2 {
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+div.product {
+  width: 350px;
+  vertical-align: top;
+  padding: 30px 0 30px 150px;
+  border: 1px solid #eaeaea;
+  background-color: white;
+}
+
+div.label {
+  padding: 5px 0;
+  color: #888888;
+}
+
+div.edit-plan {
+  display: inline-block;
+  width: 125px;
+}
+
+#plan-input {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+
+div.edit-seats {
+  display: inline-block;
+  width: 100px;
+}
+
+#seats-input {
+  width: 30px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+}
+
+div.price {
+  display: inline-block;
+  vertical-align: top;
+  width: 75px;
+  height: 50px;
+}
+#cost-value {
+  padding-top: 8px;
+  padding-bottom: 4px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.confirm-page-button-section {
+  width: 500px;
+  text-align: right;
+  margin-top: 20px;
+}
+
+#done-page {
+  margin-top: 100px;
+  margin-left: 50px;
+}
+h4 {
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.column {
+  display: inline-block;
+  width: 200px;
+  padding: 25px 0 30px 40px;
+  background-color: white;
+  margin-left: 25px;
+  border-radius: 3px;
+}
+
+.row {
+  height: 40px;
+}
+
+span.label {
+  display: inline-block;
+  width: 75px;
+  color: #bbbbbb;
+}
+/* 
+.old-value {
+  color: #888;
+  font-weight: 600;
+}
+
+.new-value {
+  color: #30aabc;
+  font-weight: 600;
+} */
+
+.value {
+  color: #888;
+  font-weight: 600;
+}
+
+.value.updated {
+  color: #30aabc;
+  font-weight: 600;
+}
+
+.done-page-button-section {
+  margin-top: 20px;
+  padding-left: 30px;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+  display: none
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
