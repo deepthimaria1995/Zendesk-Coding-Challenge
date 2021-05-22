@@ -175,9 +175,9 @@ update = () => {
       seats: seats.value,
     },
   }).then(function updateDone(response) {
-    newplan.updated = true;
-    newcost.updated = true;
-    newseats.updated = true;
+    newplan.classList.add("updated");
+    newcost.classList.add("updated");
+    newseats.classList.add("updated");
 
     oldplan.textContent = prevSubscription.name;
     oldseats.textContent = prevSubscription.seats;
@@ -188,13 +188,13 @@ update = () => {
     newcost.textContent = '$' + response.cost;
 
     if (response.name !== prevSubscription.name) {
-      newplan.updated = true;
+      newplan.classList.add("updated");
     }
     if (response.seats !== prevSubscription.seats) {
-      newseats.updated = true;
+      newseats.classList.add("updated");
     }
     if (response.cost !== prevSubscription.cost) {
-      newcost.updated = true;
+      newcost.classList.add("updated");
     }
 
     hideElement(divLoadPage);
