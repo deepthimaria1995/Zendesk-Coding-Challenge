@@ -1,9 +1,4 @@
-var PLAN_NAMES = {
-  basic: "Basic",
-  good: "Good",
-  better: "Better",
-  best: "Best",
-};
+import { PLAN_COSTS, PLAN_NAMES, storedSubscription } from './planDetails.js';
 
 export function createPlanInput(plans_arr){
   let parentDiv = document.createElement('div');
@@ -99,7 +94,6 @@ export function createSubscription() {
   parentDiv.appendChild(createPlanLayout());
   parentDiv.appendChild(createSeatLayout());
   parentDiv.appendChild(createPriceLayout());
-  console.log(parentDiv);
   return parentDiv;
 };
 
