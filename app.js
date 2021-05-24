@@ -1,8 +1,15 @@
 import { createSubscription } from './subscription.js';
-import { PLAN_COSTS, PLAN_NAMES, storedSubscription } from './planDetails.js';
+import { PLAN_COSTS, PLAN_NAMES } from './planDetails.js';
 
 var prevSubscription;
 var storedCost;
+
+var storedSubscription = {
+  plan: 'good',
+  name: 'Good',
+  seats: 5,
+  cost: 50,
+};
 
 /*****************************
   
@@ -52,6 +59,8 @@ $.mockjax({
 
 *****************************/
 
+var plans, seats, costs;
+
 var divLoadPage = document.getElementById('load-page');
 var divConfigPage = document.getElementById('config-page');
 var divDonePage = document.getElementById('done-page');
@@ -59,8 +68,6 @@ var divError = document.getElementById('error');
 
 var btnSubmit = document.getElementById('submit');
 var btnBack = document.getElementById('back');
-
-var plans, seats, costs;
 
 var newplan = document.getElementById('new-plan');
 var newseats = document.getElementById('new-seats');

@@ -12,11 +12,4 @@ var PLAN_NAMES = {
   best: 'Best',
 };
 
-var storedSubscription = {
-  plan: 'good',
-  name: 'Good',
-  seats: 5,
-  cost: 50,
-};
-
-export {PLAN_COSTS, PLAN_NAMES, storedSubscription}
+export {PLAN_COSTS, PLAN_NAMES}

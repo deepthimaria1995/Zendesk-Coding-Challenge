@@ -1,4 +1,4 @@
-import { PLAN_COSTS, PLAN_NAMES, storedSubscription } from './planDetails.js';
+import { PLAN_NAMES } from './planDetails.js';
 
 export function createPlanInput(plans_arr){
   let parentDiv = document.createElement('div');
@@ -96,8 +96,3 @@ export function createSubscription() {
   parentDiv.appendChild(createPriceLayout());
   return parentDiv;
 };
-
-/* module.exports = {
-  createSubscription : createSubscription,
-  createPriceLayout : createPriceLayout
-} */
