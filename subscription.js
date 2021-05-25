@@ -78,7 +78,6 @@ export function createPriceLabel(){
 };
 
 export function createPriceLayout() {
-//createPriceLayout = () => {
   let parentDiv = document.createElement('div');
   parentDiv.className = 'price';
 
@@ -88,7 +87,6 @@ export function createPriceLayout() {
 };
 
 export function createSubscription() {
-//createSubscription = () => {
   let parentDiv = document.createElement('div');
   parentDiv.className = 'product';
   parentDiv.appendChild(createPlanLayout());
