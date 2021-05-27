@@ -1,13 +1,12 @@
-import { PLAN_NAMES } from './planDetails.js';
+import { PLAN_NAMES } from './PlanDetails.js';
 
+/* Function to create the user input UI for subscription plan */
 export function createPlanInput(plans_arr){
   let parentDiv = document.createElement('div');
-  //Create and append select list
   let selectList = document.createElement('select');
   selectList.id = 'plan-input';
   parentDiv.appendChild(selectList);
 
-  //Create and append the options
   for (var key in plans_arr) {
     let option = document.createElement('option');
     option.value = key;
@@ -17,6 +16,7 @@ export function createPlanInput(plans_arr){
   return parentDiv;
 };
 
+/* Function to create the label element for subscription plan */
 export function createPlanLabel(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'label';
@@ -27,6 +27,7 @@ export function createPlanLabel(){
   return parentDiv;
 };
 
+/* Function to return subscription plan div*/
 export function createPlanLayout(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'edit-plan';
@@ -35,6 +36,7 @@ export function createPlanLayout(){
   return parentDiv;
 };
 
+/* Function to create the user input UI for subscription seats */
 export function createSeatsInput(){
   let parentDiv = document.createElement('div');
   let input = document.createElement('input');
@@ -45,6 +47,7 @@ export function createSeatsInput(){
   return parentDiv;
 };
 
+/* Function to create the label element for subscription seats */
 export function createSeatsLabel(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'label';
@@ -55,6 +58,7 @@ export function createSeatsLabel(){
   return parentDiv;
 };
 
+/* Function to return subscription seats div */
 export function createSeatLayout(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'edit-seats';
@@ -64,12 +68,14 @@ export function createSeatLayout(){
   return parentDiv;
 };
 
+/* Function to create the user input UI for subscription price */
 export function createPriceInput(){
   let parentDiv = document.createElement('div');
   parentDiv.id = 'cost-value';
   return parentDiv;
 };
 
+/* Function to create the label element for subscription price*/
 export function createPriceLabel(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'label';
@@ -77,6 +83,7 @@ export function createPriceLabel(){
   return parentDiv;
 };
 
+/* Function to return subscription price div */
 export function createPriceLayout() {
   let parentDiv = document.createElement('div');
   parentDiv.className = 'price';
@@ -86,6 +93,7 @@ export function createPriceLayout() {
   return parentDiv;
 };
 
+/* Function to create a new subscription layout */
 export function createSubscription() {
   let parentDiv = document.createElement('div');
   parentDiv.className = 'product';

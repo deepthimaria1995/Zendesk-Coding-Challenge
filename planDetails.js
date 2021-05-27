@@ -1,3 +1,5 @@
+/* File which shows the plan details of the subscription */
+
 var PLAN_COSTS = {
   basic: 1,
   good: 10,
