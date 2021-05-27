@@ -1,6 +1,11 @@
-import { createSubscription } from './subscription.js';
+import { createbtnSubmitLayout, createSubscription } from './subscription.js';
 import { PLAN_COSTS, PLAN_NAMES } from './planDetails.js';
-import { showElement, hideElement, disableButton, closePopup} from './utilityHelper.js'
+import {
+  showElement,
+  hideElement,
+  disableButton,
+  closePopup,
+} from './utilityHelper.js';
 
 var prevSubscription;
 var storedCost;
@@ -60,14 +65,13 @@ $.mockjax({
 
 *****************************/
 
-var plans, seats, costs;
+var plans, seats, costs, btnSubmit;
 
 var divLoadPage = document.getElementById('load-page');
 var divConfigPage = document.getElementById('config-page');
 var divDonePage = document.getElementById('done-page');
 var divError = document.getElementById('error');
 
-var btnSubmit = document.getElementById('submit');
 var btnBack = document.getElementById('back');
 
 var newplan = document.getElementById('new-plan');
@@ -81,19 +85,33 @@ var btnerrorClose = document.getElementById('errorclosebtn');
 /* Function to add the required subscription plans for required products */
 function loadPage() {
   console.debug('$$$ Loading page with the subscription plans');
-  var divLoadPage = document.getElementById('load-page');
-  var btnSubmitComponent = document.getElementsByClassName(
-    'confirm-page-button-section'
-  )[0];
-  divConfigPage.insertBefore(createSubscription(), btnSubmitComponent);
+  divConfigPage.appendChild(createSubscription());
+  divConfigPage.appendChild(createbtnSubmitLayout());
   getDOMElements();
+  addListenersToElements();
 }
 
 /* Function to get the DOM elements*/
-function getDOMElements(){
+function getDOMElements() {
   plans = document.getElementById('plan-input');
   seats = document.getElementById('seats-input');
   costs = document.getElementById('cost-value');
+  btnSubmit = document.getElementById('submit');
+}
+
+/* Binds DOM elements with event listeners and its callbacks */
+function addListenersToElements() {
+  plans.addEventListener('change', showSubscriptionPreview);
+
+  seats.addEventListener('change', showSubscriptionPreview);
+
+  btnSubmit.addEventListener('click', update);
+
+  btnBack.addEventListener('click', goBack);
+
+  btnerrorClose.addEventListener('click', function () {
+    closePopup(this);
+  });
 }
 
 /* Function to initialise the subscription plan */
@@ -136,9 +154,41 @@ function showSubscriptionPreview() {
   }
 }
 
+/* Function to show the Done page with the current and update plans */
+function updateDone(response) {
+  newplan.classList.add('updated');
+  newcost.classList.add('updated');
+  newseats.classList.add('updated');
+
+  oldplan.textContent = prevSubscription.name;
+  oldseats.textContent = prevSubscription.seats;
+  oldcost.textContent = '$' + prevSubscription.cost;
+
+  newplan.textContent = response.name;
+  newseats.textContent = response.seats;
+  newcost.textContent = '$' + response.cost;
+
+  if (response.name !== prevSubscription.name) {
+    newplan.classList.add('updated');
+  }
+  if (response.seats !== prevSubscription.seats) {
+    newseats.classList.add('updated');
+  }
+  if (response.cost !== prevSubscription.cost) {
+    newcost.classList.add('updated');
+  }
+
+  hideElement(divLoadPage);
+  hideElement(divConfigPage);
+  showElement(divDonePage);
+
+  storedCost = response.cost;
+  disableButton(btnSubmit, true);
+}
+
 /* Implementation of Update Subscription button */
 function update() {
-  console.debug("$$$ Showing details of the subscription update");
+  console.debug('$$$ Showing details of the subscription update');
   hideElement(divLoadPage);
   showElement(divConfigPage);
 
@@ -149,36 +199,7 @@ function update() {
       plan: plans.value,
       seats: seats.value,
     },
-  }).then(function updateDone(response) {
-    newplan.classList.add('updated');
-    newcost.classList.add('updated');
-    newseats.classList.add('updated');
-
-    oldplan.textContent = prevSubscription.name;
-    oldseats.textContent = prevSubscription.seats;
-    oldcost.textContent = '$' + prevSubscription.cost;
-
-    newplan.textContent = response.name;
-    newseats.textContent = response.seats;
-    newcost.textContent = '$' + response.cost;
-
-    if (response.name !== prevSubscription.name) {
-      newplan.classList.add('updated');
-    }
-    if (response.seats !== prevSubscription.seats) {
-      newseats.classList.add('updated');
-    }
-    if (response.cost !== prevSubscription.cost) {
-      newcost.classList.add('updated');
-    }
-
-    hideElement(divLoadPage);
-    hideElement(divConfigPage);
-    showElement(divDonePage);
-
-    storedCost = response.cost;
-    disableButton(btnSubmit, true);
-  });
+  }).then((response) => updateDone(response));
 }
 
 /* Implementation of Back button */
@@ -203,16 +224,4 @@ $.get({
 
   updateValues(response);
   storedCost = response.cost;
-});
-
-plans.addEventListener('change', showSubscriptionPreview);
-
-seats.addEventListener('change', showSubscriptionPreview);
-
-btnSubmit.addEventListener('click', update);
-
-btnBack.addEventListener('click', goBack);
-
-btnerrorClose.addEventListener('click', function () {
-  closePopup(this);
 });

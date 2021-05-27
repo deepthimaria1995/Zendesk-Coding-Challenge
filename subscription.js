@@ -1,7 +1,7 @@
 import { PLAN_NAMES } from './PlanDetails.js';
 
 /* Function to create the user input UI for subscription plan */
-export function createPlanInput(plans_arr){
+function createPlanInput(plans_arr){
   let parentDiv = document.createElement('div');
   let selectList = document.createElement('select');
   selectList.id = 'plan-input';
@@ -17,7 +17,7 @@ export function createPlanInput(plans_arr){
 };
 
 /* Function to create the label element for subscription plan */
-export function createPlanLabel(){
+function createPlanLabel(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'label';
   let label = document.createElement('Label');
@@ -28,7 +28,7 @@ export function createPlanLabel(){
 };
 
 /* Function to return subscription plan div*/
-export function createPlanLayout(){
+function createPlanLayout(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'edit-plan';
   parentDiv.appendChild(createPlanInput(PLAN_NAMES));
@@ -37,7 +37,7 @@ export function createPlanLayout(){
 };
 
 /* Function to create the user input UI for subscription seats */
-export function createSeatsInput(){
+function createSeatsInput(){
   let parentDiv = document.createElement('div');
   let input = document.createElement('input');
   input.id = 'seats-input';
@@ -48,7 +48,7 @@ export function createSeatsInput(){
 };
 
 /* Function to create the label element for subscription seats */
-export function createSeatsLabel(){
+function createSeatsLabel(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'label';
   let label = document.createElement('Label');
@@ -59,7 +59,7 @@ export function createSeatsLabel(){
 };
 
 /* Function to return subscription seats div */
-export function createSeatLayout(){
+function createSeatLayout(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'edit-seats';
 
@@ -69,14 +69,14 @@ export function createSeatLayout(){
 };
 
 /* Function to create the user input UI for subscription price */
-export function createPriceInput(){
+function createPriceInput(){
   let parentDiv = document.createElement('div');
   parentDiv.id = 'cost-value';
   return parentDiv;
 };
 
 /* Function to create the label element for subscription price*/
-export function createPriceLabel(){
+function createPriceLabel(){
   let parentDiv = document.createElement('div');
   parentDiv.className = 'label';
   parentDiv.innerHTML = 'Price';
@@ -84,7 +84,7 @@ export function createPriceLabel(){
 };
 
 /* Function to return subscription price div */
-export function createPriceLayout() {
+function createPriceLayout() {
   let parentDiv = document.createElement('div');
   parentDiv.className = 'price';
 
@@ -93,8 +93,22 @@ export function createPriceLayout() {
   return parentDiv;
 };
 
+/* Function to return Submit button div */
+function createbtnSubmitLayout() {
+  let parentDiv = document.createElement('div');
+  parentDiv.className = 'confirm-page-button-section';
+
+  var btnSubmit = document.createElement("BUTTON");
+  btnSubmit.id = "submit";
+  btnSubmit.disabled = true;
+  btnSubmit.innerHTML = "Update Subscription";
+
+  parentDiv.appendChild(btnSubmit);
+  return parentDiv;
+};
+
 /* Function to create a new subscription layout */
-export function createSubscription() {
+function createSubscription() {
   let parentDiv = document.createElement('div');
   parentDiv.className = 'product';
   parentDiv.appendChild(createPlanLayout());
@@ -102,3 +116,5 @@ export function createSubscription() {
   parentDiv.appendChild(createPriceLayout());
   return parentDiv;
 };
+
+export { createSubscription, createbtnSubmitLayout}
