@@ -12,8 +12,7 @@ An application that is written in javascript using the Node.js runtime to create
 - Download the repository to your local machine with the following code.\
 $ git clone https://github.com/deepthimaria1995/Zendesk-Coding-Challenge
 
-- Navigate to the Zendesk-Coding-Challenge repository directory in your Terminal.ins\
-Install all npm modules with the following code.
+- Navigate to the Zendesk-Coding-Challenge repository directory in your Terminal.Install all npm modules with the following code.\
 $ npm install
 
 - Start server from console with command. That will give you a link to access the webpage.\
