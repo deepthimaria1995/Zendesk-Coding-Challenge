@@ -5,6 +5,7 @@ import {
   hideElement,
   disableButton,
   closePopup,
+  showErrorMessage
 } from './utilityHelper.js';
 
 var prevSubscription;
@@ -149,7 +150,7 @@ function showSubscriptionPreview() {
       }
     });
   } else {
-    showElement(divError);
+    showErrorMessage("Entered values are incorrect. Try again!");
     disableButton(btnSubmit, true);
   }
 }

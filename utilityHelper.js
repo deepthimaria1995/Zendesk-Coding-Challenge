@@ -30,4 +30,10 @@ function closePopup(ele) {
   }, 600);
 }
 
-export { showElement, hideElement, disableButton, closePopup }
+function showErrorMessage(msg) {
+  var errorMsg = document.getElementById("error");
+  errorMsg.innerHTML = "<strong>Error!</strong> " + msg;
+  showElement(errorMsg);
+}
+
+export { showElement, hideElement, disableButton, closePopup, showErrorMessage }
