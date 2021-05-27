@@ -1,11 +1,11 @@
 # Zendesk-Coding-Challenge - Submission
 
-A command line interface based application that is written in javascript using the Node.js runtime. The app makes HTTP requests to the Zendesk API to retrieve account tickets displayed in either a summary table or full details format. The task had a one week deadline to create and submit the application.
+An application that is written in javascript using the Node.js runtime to create an application for purchasing a subscription.
 
 ## Prerequisite Installations
 
-- [NodeJS](https://nodejs.org/en/) v10.16.0 or greater
-- NPM v6.9.0 or greater (At the time of making this documentation, NPM comes with the Node.js installation)
+- [NodeJS](https://nodejs.org/en/) v14.17.0 or greater
+- NPM v6.14.13.0 or greater (At the time of making this documentation, NPM comes with the Node.js installation)
 
 ## How to run
 
